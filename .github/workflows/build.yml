@@ -25,7 +25,7 @@ jobs:
          uses: actions/upload-artifact@v3
          with:
            name: client-files
-           path: client/build
+           path: client/dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
