@@ -31,7 +31,6 @@ node_modules
 
 /pgdata
 
-docker-compose.yml
 database.sql
 new_database.sql
 .tmp
