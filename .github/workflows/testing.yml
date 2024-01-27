@@ -6,6 +6,8 @@ jobs:
         steps:
             - name: Get repository files@v2
               uses: actions/checkout@v4
+            - name: List directory contents
+              run: ls
             - name: change directories
               run: cd client
             - name: Install dependencies
