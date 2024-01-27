@@ -1,0 +1,28 @@
+name: Build
+on: 
+    workflow_dispatch:
+    push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Get code
+         uses: actions/checkout@v4
+       - name: Cache Primes
+         uses: actions/cache@v4
+         with:
+                path: ~/.npm
+                key: node-modules-${{ hashFiles('client/packege-lock.json') }}
+       - name: Install dependencies
+         run: |
+          cd client
+          npm ci
+            - name: Build app
+              run: |
+                cd client
+                npm run build
+            - name: Upload artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: client-files
+                path: client/build
