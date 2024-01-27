@@ -6,6 +6,8 @@ jobs:
         steps:
             - name: Get repository files@v2
               uses: actions/checkout@v4
+            - name: change directories
+              run: cd client
             - name: Install dependencies
               run: npm install
             - name: Test app
