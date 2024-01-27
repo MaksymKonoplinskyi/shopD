@@ -1,0 +1,48 @@
+name: Deploy React App
+on:
+  pull_request: 
+  push:
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files@v2
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: |
+                cd server
+                npm ci
+            - name: Test app
+              run: |
+                cd server
+                npm run test
+    lint: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files@v2
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: |
+                cd server
+                npm install
+            - name: Test app
+              run: |
+                cd server
+                npm run lint
+    build: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files@v2
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: |
+                cd server
+                npm install
+            - name: Test app
+              run: |
+                cd server
+                npm run build
+            - name: Deploy
+              run: |
+                cd server
+                echo "Deploying!"
