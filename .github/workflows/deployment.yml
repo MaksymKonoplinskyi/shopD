@@ -44,6 +44,7 @@ jobs:
                 npm run lint
     build: 
         runs-on: ubuntu-latest
+        needs: [lint, test]
         steps:
             - name: Get repository files@v2
               uses: actions/checkout@v4
