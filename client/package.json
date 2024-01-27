@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx"
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
