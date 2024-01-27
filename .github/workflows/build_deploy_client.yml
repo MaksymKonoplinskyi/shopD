@@ -12,7 +12,7 @@ jobs:
               run: |
                 cd client
                 docker build -t shop-client .
-                docker tag shop-client:latest ${{ secrets.DOCKER_HUB_USERNAME }}/client:latest
+                docker tag shop-client:latest ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest
                 docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
                 docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest               
              
