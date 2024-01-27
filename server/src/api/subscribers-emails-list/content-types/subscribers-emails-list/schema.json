@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscribers_emails_lists",
+  "info": {
+    "singularName": "subscribers-emails-list",
+    "pluralName": "subscribers-emails-lists",
+    "displayName": "SubscribersEmailsList",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    }
+  }
+}

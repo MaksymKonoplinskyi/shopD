@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Montserrat:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .container {
+    @apply m-auto max-w-7xl w-11/12
+  }
+}
+
+
+@layer base {
+
+
+  h1 {
+    @apply text-7xl my-8 w-full text-center
+  }
+  h2 {
+    @apply text-7xl my-8 w-full text-center 
+  }
+  h3 {
+    @apply text-4xl my-8 w-full text-center
+  }
+  h4 {
+    @apply text-2xl my-8 w-full text-center
+  }
+  h5 {
+    @apply text-xl
+  }
+}

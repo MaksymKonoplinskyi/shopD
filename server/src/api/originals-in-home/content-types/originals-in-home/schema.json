@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "originals_in_homes",
+  "info": {
+    "singularName": "originals-in-home",
+    "pluralName": "originals-in-homes",
+    "displayName": "OriginalsInHome"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstOfAbstract": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    },
+    "secondOfAbstract": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    },
+    "firstOfNude": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    },
+    "secondOfNude": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    },
+    "firstOfOthers": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    },
+    "secondOfOthers": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item.item"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "Original",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true,
+      "min": 2
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mainPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "videos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "height": {
+      "type": "integer",
+      "required": true
+    },
+    "wight": {
+      "type": "integer",
+      "required": true
+    },
+    "material": {
+      "type": "enumeration",
+      "enum": [
+        "gallery wrap linen canvas",
+        "gallery wrap canvas",
+        "epoxy resin"
+      ],
+      "required": true,
+      "default": "gallery wrap canvas"
+    },
+    "medium": {
+      "type": "enumeration",
+      "enum": [
+        "oil",
+        "acrylic",
+        "texture paste",
+        "colorant"
+      ],
+      "required": true,
+      "default": "acrylic"
+    },
+    "subject": {
+      "type": "enumeration",
+      "enum": [
+        "nude",
+        "abstract",
+        "others"
+      ],
+      "required": true,
+      "default": "abstract"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "in stock",
+        "booked",
+        "sold",
+        "sale"
+      ],
+      "required": true,
+      "default": "in stock"
+    },
+    "oldPrice": {
+      "type": "integer"
+    },
+    "interiorPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "products"
+    }
+  }
+}

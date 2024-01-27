@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "collaboration_home_infos",
+  "info": {
+    "singularName": "collaboration-home-info",
+    "pluralName": "collaboration-home-infos",
+    "displayName": "CollaborationHomeInfo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

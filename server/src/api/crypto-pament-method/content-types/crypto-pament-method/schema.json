@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "crypto_pament_methods",
+  "info": {
+    "singularName": "crypto-pament-method",
+    "pluralName": "crypto-pament-methods",
+    "displayName": "CryptoPamentMethod",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MethodName": {
+      "type": "string"
+    },
+    "Chain": {
+      "type": "enumeration",
+      "enum": [
+        "Ethereum Mainnet",
+        "Binance Smart Chain"
+      ],
+      "required": true
+    },
+    "Token": {
+      "type": "enumeration",
+      "enum": [
+        "BUSD",
+        "USDT"
+      ],
+      "required": true
+    },
+    "AdressText": {
+      "type": "string",
+      "required": true,
+      "default": "0xBed2AEBEce4B0D0234Cf7000eFe26391687019cD",
+      "maxLength": 42,
+      "minLength": 42
+    },
+    "AdressQRCode": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collaboration_lists",
+  "info": {
+    "singularName": "collaboration-list",
+    "pluralName": "collaboration-lists",
+    "displayName": "CollaborationList"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "text"
+    }
+  }
+}
