@@ -2,22 +2,18 @@ name: Server CI/CD
 on:
   pull_request: 
   push:
+    branches:
+    - main 
 jobs:
-    build: 
+    build_docker_image: 
         runs-on: ubuntu-latest
         steps:
             - name: Get repository files@v2
               uses: actions/checkout@v4
-            - name: Install dependencies
+            - name: Build Docker image
               run: |
                 cd server
-                npm install
-            - name: Test app
-              run: |
-                cd server
-                npm run build
-            - name: Deploy
-              run: |
-                cd server
-                echo "Deploying!"
-    
+                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest .
+                docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+                docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest
+                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest  
