@@ -1,4 +1,4 @@
-name: Deploy React App
+name: Client CI/CD
 on:
   pull_request: 
   push:
