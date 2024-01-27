@@ -6,11 +6,11 @@ jobs:
         steps:
             - name: Get repository files@v2
               uses: actions/checkout@v4
-            - name: change directories
-              run: cd client
-            - name: List directory contents
-              run: ls
             - name: Install dependencies
-              run: npm install
+              run: |
+                cd client
+                npm install
             - name: Test app
-              run: npm run test
+              run: |
+                cd client
+                npm run test
