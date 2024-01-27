@@ -4,15 +4,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: Get repository files@v2
+      - name: Get repository files@v2
         uses: actions/checkout@v4
       - name: Install dependencies
         run: ci
       - name: Test app
         run: npm run test
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages
-          folder: build
-```
