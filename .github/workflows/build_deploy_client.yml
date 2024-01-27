@@ -2,6 +2,8 @@ name: Client CI/CD
 on:
   pull_request: 
   push:
+    branches:
+    - main 
 jobs:
     build_docker_image: 
         runs-on: ubuntu-latest
@@ -11,9 +13,9 @@ jobs:
             - name: Build Docker image
               run: |
                 cd client
-                docker build -t shop-client .
-                docker tag shop-client:latest shop-client:latest
+                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest .
                 docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+                docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest
                 docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest  
              
 
