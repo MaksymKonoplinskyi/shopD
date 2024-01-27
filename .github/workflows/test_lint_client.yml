@@ -1,4 +1,4 @@
-name: Client CI/CD
+name: Client tests
 on:
   pull_request: 
   push:

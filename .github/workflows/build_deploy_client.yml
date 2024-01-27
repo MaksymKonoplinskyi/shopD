@@ -1,0 +1,30 @@
+name: Client CI/CD
+on:
+  pull_request: 
+  push:
+jobs:
+    build_docker_image: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files@v2
+              uses: actions/checkout@v4
+            - name: Build Docker image
+              run: |
+                docker build -t shop-client .
+                docker tag shop-client:latest ${{ secrets.DOCKER_HUB_USERNAME }}/client:latest
+                docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest               
+             
+
+            # - name: Install dependencies
+            #   run: |
+            #     cd client
+            #     npm install
+            # - name: Build
+            #   run: |
+            #     cd client
+            #     npm run build
+            # - name: Deploy
+            #   run: |
+            #     cd client
+            #     echo "Deploying!"

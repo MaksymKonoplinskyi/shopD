@@ -1,0 +1,23 @@
+name: Server CI/CD
+on:
+  pull_request: 
+  push:
+jobs:
+    build: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files@v2
+              uses: actions/checkout@v4
+            - name: Install dependencies
+              run: |
+                cd server
+                npm install
+            - name: Test app
+              run: |
+                cd server
+                npm run build
+            - name: Deploy
+              run: |
+                cd server
+                echo "Deploying!"
+    
