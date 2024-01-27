@@ -1,5 +1,7 @@
 import { IOriginItem } from "../types/data"
 
+
+
 export const findTotalPrice = (originsInCart: IOriginItem[]): number  => originsInCart.reduce(
     (total: number, item: IOriginItem) => {
       return total + item.attributes.price
