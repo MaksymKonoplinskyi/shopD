@@ -11,11 +11,6 @@ import { theme } from "./theme"
 import store from "./redux/store"
 import { MetaMaskProvider } from "metamask-react"
 
-// const store = configureStore({
-//   reducer: {
-//     cart: cartReducer,
-//   },
-// });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
