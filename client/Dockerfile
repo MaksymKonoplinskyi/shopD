@@ -11,7 +11,7 @@ COPY . .
 # RUN npm run build
 
 # ENV PORT 5000 
-ENV VITE_REACT_APP_API_URL http://localhost:1337
+# ENV VITE_REACT_APP_API_URL http://localhost:1337
 
 EXPOSE 5000
 EXPOSE 1337
