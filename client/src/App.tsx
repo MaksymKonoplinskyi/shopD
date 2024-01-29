@@ -1,24 +1,24 @@
-import { useEffect } from "react"
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
-import Home from "./scenes/home/Home"
-import Navbar from "./scenes/global/Navbar"
-import { Footer } from "./scenes/global/Footer"
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import Home from './scenes/home/Home'
+import Navbar from './scenes/global/Navbar'
+import { Footer } from './scenes/global/Footer'
 // import ItemDetails from "./scenes/itemDetails000/ItemDetails";
-import { Checkout } from "./scenes/checkout/Checkout"
-import "./styles/globals.css"
-import ProductDetailsPage from "./scenes/ProductDetails/ProductDetailsPage"
-import ShoppingList from "./scenes/Shop/ShoppingList"
-import Cart from "./scenes/global/Cart"
-import { useAppDispatch } from "../hook"
-import { fetchItems } from "./redux/slices/origins"
-import { IOriginItem } from "./types/data"
-import { setCartItems, setUserEmail } from "./redux/slices/cart"
-import { fetchHomeItems } from "./redux/slices/home"
-import { CollaborationPage } from "./scenes/Collaboration/CollaborationPage"
-import { AboutPage } from "./scenes/Pages/AboutPage"
-import { FAQPage } from "./scenes/Pages/FAQPage"
-import { ShippingPolicyPage } from "./scenes/Pages/ShippingPolicyPage"
-import { RefundPolicyPage } from "./scenes/Pages/RefundPolicyPage"
+import { Checkout } from './scenes/checkout/Checkout'
+import './styles/globals.css'
+import ProductDetailsPage from './scenes/ProductDetails/ProductDetailsPage'
+import ShoppingList from './scenes/Shop/ShoppingList'
+import Cart from './scenes/global/Cart'
+import { useAppDispatch } from '../hook'
+import { fetchItems } from './redux/slices/origins'
+import { IOriginItem } from './types/data'
+import { setCartItems, setUserEmail } from './redux/slices/cart'
+import { fetchHomeItems } from './redux/slices/home'
+import { CollaborationPage } from './scenes/Collaboration/CollaborationPage'
+import { AboutPage } from './scenes/Pages/AboutPage'
+import { FAQPage } from './scenes/Pages/FAQPage'
+import { ShippingPolicyPage } from './scenes/Pages/ShippingPolicyPage'
+import { RefundPolicyPage } from './scenes/Pages/RefundPolicyPage'
 
 const ScrollToTop = () => {
   const { pathname } = useLocation()
@@ -34,9 +34,7 @@ function App() {
   const dispatch = useAppDispatch()
   useEffect(() => {
     // При загрузке страницы извлекаем данные из localStorage
-    const savedCartItems = JSON.parse(
-      localStorage.getItem("cartItems") || "[]"
-    ) as IOriginItem[]
+    const savedCartItems = JSON.parse(localStorage.getItem('cartItems') || '[]') as IOriginItem[]
     dispatch(setCartItems(savedCartItems))
   }, [])
 

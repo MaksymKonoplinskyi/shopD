@@ -2,17 +2,11 @@ FROM node:20-alpine3.18
 
 WORKDIR /app
 
-COPY package.json .
+COPY package.json package-lock.json /app/
 
 RUN npm install
 
 COPY . .
+RUN npm run build
 
-ENV PORT 1337
-EXPOSE $PORT
-EXPOSE 21481
-EXPOSE 6000
-
-# VOLUME [ "/app/data" ]
-
-CMD [ "npm", "run", "dev"]
+CMD [ "npm", "run", "start"]

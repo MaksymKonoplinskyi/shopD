@@ -15,5 +15,4 @@ jobs:
                 cd server
                 docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest .
                 docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-                docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest
                 docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest  
