@@ -1,0 +1,82 @@
+name: Client CI/CD
+on:
+  pull_request: 
+  push:
+    branches:
+    - main 
+jobs:
+  test_client:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Get repository files@v2
+          uses: actions/checkout@v4
+        - name: Install dependencies
+          run: |
+            cd client
+            npm ci
+        - name: Test app
+          run: |
+            cd client
+            npm run test
+  lint_client: 
+    runs-on: ubuntu-latest
+    steps:
+        - name: Get repository files@v2
+          uses: actions/checkout@v4
+        - name: Install dependencies
+          run: |
+            cd client
+            npm install
+        - name: Test app
+          run: |
+            cd client
+            npm run lint
+  build_test_client: 
+    runs-on: ubuntu-latest
+    steps:
+        - name: Get repository files@v2
+          uses: actions/checkout@v4
+        - name: Install dependencies
+          run: |
+            cd client
+            npm install
+        - name: Test app
+          run: |
+            cd client
+            npm run build
+  build_test_server: 
+    runs-on: ubuntu-latest
+    steps:
+        - name: Get repository files@v2
+          uses: actions/checkout@v4
+        - name: Install dependencies
+          run: |
+            cd server
+            npm install
+        - name: Test app
+          run: |
+            cd server
+            npm run build
+  build_client_docker_image: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files
+              uses: actions/checkout@v4
+            - name: Build Docker image
+              run: |
+                cd client
+                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest .
+                docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest  
+  build_server_docker_image: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repository files
+              uses: actions/checkout@v4
+            - name: Build Docker image
+              run: |
+                cd server
+                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest .
+                docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
+                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest  
+             
