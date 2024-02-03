@@ -65,9 +65,9 @@ jobs:
             - name: Build Docker image
               run: |
                 cd client
-                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest .
+                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:${{ github.sha }} .
                 docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:latest  
+                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-client:${{ github.sha }}
   build_server_docker_image: 
         runs-on: ubuntu-latest
         steps:
@@ -76,7 +76,13 @@ jobs:
             - name: Build Docker image
               run: |
                 cd server
-                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest .
+                docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:${{ github.sha }} .
                 docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} -p ${{ secrets.DOCKER_HUB_PASSWORD }}
-                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:latest  
+                docker push ${{ secrets.DOCKER_HUB_USERNAME }}/shop-server:${{ github.sha }}
+            # - name: Deploy to GCP
+            #   uses: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@x.x.x
+            #   with:
+            #     service_account_key: ${{ secrets.GCP_SA_KEY }}
+            #     project_id: ${{ secrets.GCP_PROJECT_ID }}
+            #     location: ${{ secrets.GCP_COMPUTE_ZONE }}
              
