@@ -1,40 +1,31 @@
-import { Box, InputBase, Divider, Typography, IconButton } from "@mui/material"
-import MarkEmailReadOutlinedIcon from "@mui/icons-material/MarkEmailReadOutlined"
-import { useEffect, useState } from "react"
+import { Box, InputBase, Divider, Typography, IconButton } from '@mui/material'
+import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined'
+import { useEffect, useState } from 'react'
 
-import TextField from "@mui/material/TextField"
+import TextField from '@mui/material/TextField'
 // import { IEmailData, IEmailDataE, IValues } from "./Checkout"
-import { FormikErrors, FormikTouched } from "formik"
-import { Formik, Field, Form, FormikHelpers } from "formik"
+import { FormikErrors, FormikTouched } from 'formik'
+import { Formik, Field, Form, FormikHelpers } from 'formik'
 
-import { useFormik } from "formik"
-import * as yup from "yup"
-import { useAppDispatch, useAppSelector } from "../../../hook"
-import { setUserEmail } from "../../redux/slices/cart"
-import { fetchSubscribeEmail } from "../../redux/slices/home"
+import { useFormik } from 'formik'
+import * as yup from 'yup'
+import { useAppDispatch, useAppSelector } from '../../../../hook'
+import { setUserEmail } from '../../../redux/slices/cart'
+import { fetchSubscribeEmail } from '../../../redux/slices/home'
 
 const validationSchema = yup.object({
-  email: yup
-    .string()
-    .email("Enter a valid email")
-    .required("Email is required"),
+  email: yup.string().email('Enter a valid email').required('Email is required'),
 })
 
 const Subscribe: React.FC = () => {
   // const [email, setEmail] = useState("")
 
   const dispatch = useAppDispatch()
-  const hasSubscribe = JSON.parse(
-    localStorage.getItem("hasSubscribe") || "false"
-  ) as string
-  const savedUserEmail = JSON.parse(
-    localStorage.getItem("userEmail") || "false"
-  ) as string
-
-  
+  const hasSubscribe = JSON.parse(localStorage.getItem('hasSubscribe') || 'false') as string
+  const savedUserEmail = JSON.parse(localStorage.getItem('userEmail') || 'false') as string
 
   useEffect(() => {
-    dispatch(setUserEmail(typeof(savedUserEmail) === 'string' ? savedUserEmail : ""))
+    dispatch(setUserEmail(typeof savedUserEmail === 'string' ? savedUserEmail : ''))
   }, [])
   const userEmail = useAppSelector(state => state.cart.userEmail)
   const formik = useFormik({
@@ -56,23 +47,20 @@ const Subscribe: React.FC = () => {
           <Typography>and receive early access to new originals</Typography>
         </div>
       </div>
-      <form
-        onSubmit={formik.handleSubmit}
-        className='flex justify-between gap-4 mt-8'
-      >
+      <form onSubmit={formik.handleSubmit} className='flex justify-between gap-4 mt-8'>
         <TextField
           InputLabelProps={{
             sx: {
-              color: "#000000 !important",
-              opacity: "0.5",
+              color: '#000000 !important',
+              opacity: '0.5',
             },
           }}
           InputProps={{
             sx: {
-              "& fieldset": {
-                border: "1px solid !important",
+              '& fieldset': {
+                border: '1px solid !important',
                 borderRadius: 0,
-                opacity: "0.3",
+                opacity: '0.3',
               },
             },
           }}

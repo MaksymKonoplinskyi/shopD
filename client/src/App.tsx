@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import Home from './scenes/home/Home'
+import Home from './scenes/Pages/home/Home'
 import Navbar from './scenes/global/Navbar'
 import { Footer } from './scenes/global/Footer'
-// import ItemDetails from "./scenes/itemDetails000/ItemDetails";
 import { Checkout } from './scenes/checkout/Checkout'
 import './styles/globals.css'
 import ProductDetailsPage from './scenes/ProductDetails/ProductDetailsPage'
@@ -19,6 +18,7 @@ import { AboutPage } from './scenes/Pages/AboutPage'
 import { FAQPage } from './scenes/Pages/FAQPage'
 import { ShippingPolicyPage } from './scenes/Pages/ShippingPolicyPage'
 import { RefundPolicyPage } from './scenes/Pages/RefundPolicyPage'
+import ArtistPage from './scenes/Pages/ArtistPage/ArtistPage'
 
 const ScrollToTop = () => {
   const { pathname } = useLocation()
@@ -51,11 +51,11 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='artist' element={<ArtistPage />} />
           <Route path='shop' element={<ShoppingList />} />
           <Route path='shop/:sort' element={<ShoppingList />} />
           <Route path='item/:itemId' element={<ProductDetailsPage />} />
           <Route path='checkout' element={<Checkout />} />
-          {/* <Route path='checkout/success' element={<Confirmation />} /> */}
           <Route path='collaboration' element={<CollaborationPage />} />
           <Route path='about' element={<AboutPage />} />
           <Route path='faq' element={<FAQPage />} />
