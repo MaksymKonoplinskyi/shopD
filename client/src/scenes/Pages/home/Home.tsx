@@ -12,7 +12,6 @@ function Home() {
   const homeItemsId = useAppSelector(state => state.home.homeItemsId)
   return (
     <div className='home'>
-      <MainCarousel />
       <div className='container'>
         <Divider />
         {items && <TwoProductSortedList title={'Abstract Origin Work'} items={items} sort={'abstract'} firstItemId={homeItemsId?.firstOfAbstract} secondItemId={homeItemsId?.secondOfAbstract} />}
